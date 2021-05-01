@@ -112,3 +112,15 @@ by_name = from(u in "users", where: u.username == ^name)
 
 # Assim como para deletar
 # {1, _} = Repo.delete_all post
+
+third_user = %User{
+  username: "kira",
+  email: "kira@bark.com",
+  about:
+    "I like to bark. au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! "
+}
+
+Repo.insert(third_user)
+
+# kira_query = from(User, where: [username: "kira"])
+# Repo.update_all(kira_query, set: [email: "kira@auau.com"])
