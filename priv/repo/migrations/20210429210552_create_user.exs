@@ -3,6 +3,7 @@ defmodule Linkly.Repo.Migrations.CreateUser do
 
   def change do
     create table(:users) do
+      add :about, :text
       add :email, :string
       add :username, :string
 
