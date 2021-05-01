@@ -1,21 +1,3 @@
 # Linkly
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `linkly` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:linkly, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/linkly](https://hexdocs.pm/linkly).
-
+An **Elixir** backend project from the [Ecto Beginner Series](https://www.youtube.com/playlist?list=PLFhQVxlaKQElscjMvMmyMCaZ9mxf4XAw-) on the [Alchemist Camp](https://alchemist.camp/) YT channel, based on Delicious, a social bookmarking web service for storing, sharing, and discovering web bookmarks.
