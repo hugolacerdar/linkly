@@ -1,4 +1,4 @@
-defmodule Linkly.Link do
+defmodule Linkly.LinkTag do
   use Ecto.Schema
 
   schema "link_tags" do
