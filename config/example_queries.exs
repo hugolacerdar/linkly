@@ -1,6 +1,7 @@
 import Ecto.Query
 alias Ecto.Adapters.SQL
 alias Linkly.Repo
+alias Linkly.{Bookmark, Link, LinkTag, Tag, User}
 
 links_to_insert = [
   [
@@ -124,3 +125,6 @@ Repo.insert(third_user)
 
 # kira_query = from(User, where: [username: "kira"])
 # Repo.update_all(kira_query, set: [email: "kira@auau.com"])
+
+query = from(b in Bookmark, where: b.link_id == 2)
+Repo.aggregate(query, :count, :id)
