@@ -23,7 +23,8 @@ defmodule Linkly.MixProject do
   defp deps do
     [
       {:postgrex, "~> 0.15"},
-      {:ecto_sql, "~> 3.1"}
+      {:ecto_sql, "~> 3.1"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
