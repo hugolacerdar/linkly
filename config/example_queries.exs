@@ -33,6 +33,12 @@ users_to_insert = [
     email: "hugo@example.com",
     inserted_at: DateTime.utc_now(),
     updated_at: DateTime.utc_now()
+  ],
+  [
+    username: "alchs",
+    email: "alchs@camps.com",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
   ]
 ]
 
@@ -67,9 +73,82 @@ bookmarks_to_insert = [
   ]
 ]
 
+tags_to_insert = [
+  [
+    title: "Business",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    title: "Community",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    title: "Elixir",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    title: "Podcast",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    title: "Projects",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    title: "Resource",
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ]
+]
+
+link_tags_to_insert = [
+  [
+    link_id: 1,
+    user_id: 1,
+    tag_id: 3,
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    link_id: 2,
+    user_id: 2,
+    tag_id: 1,
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    link_id: 2,
+    user_id: 2,
+    tag_id: 4,
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    link_id: 1,
+    user_id: 3,
+    tag_id: 5,
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ],
+  [
+    link_id: 2,
+    user_id: 3,
+    tag_id: 5,
+    inserted_at: DateTime.utc_now(),
+    updated_at: DateTime.utc_now()
+  ]
+]
+
 Repo.insert_all("users", users_to_insert, returning: [:id, :username])
 Repo.insert_all("links", links_to_insert, returning: [:id, :url])
 Repo.insert_all("bookmarks", bookmarks_to_insert)
+Repo.insert_all("tags", tags_to_insert)
+Repo.insert_all("link_tags", link_tags_to_insert)
 
 Repo.query("select * from users")
 
@@ -114,14 +193,14 @@ by_name = from(u in "users", where: u.username == ^name)
 # Assim como para deletar
 # {1, _} = Repo.delete_all post
 
-third_user = %User{
+kira_user = %User{
   username: "kira",
   email: "kira@bark.com",
   about:
     "I like to bark. au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! au! "
 }
 
-Repo.insert(third_user)
+Repo.insert(kira_user)
 
 # kira_query = from(User, where: [username: "kira"])
 # Repo.update_all(kira_query, set: [email: "kira@auau.com"])
