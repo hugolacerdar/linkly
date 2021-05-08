@@ -207,3 +207,30 @@ Repo.insert(kira_user)
 
 query = from(b in Bookmark, where: b.link_id == 2)
 Repo.aggregate(query, :count, :id)
+
+lia = Repo.get_by(User, [username: "lia"])
+
+new_bm = Ecto.build_assoc(
+  sam,
+  :bookmarks,
+  title: "Lots of tech books"
+)
+
+Repo.get_by(User, [username: "lia"])
+|> Ecto.build_assoc(:bookmarks, title: "Lots of tech books")
+|> change()
+|> put_assoc(:link, [url: "https://manning.com"])
+|> Repo.insert()
+
+%{
+  "title" => "Lots of tech books",
+  "link" => %{
+    %{"url" => "https://manning.com"}
+  },
+  %{"user_id" => "4"}
+}
+
+%Bookmark{}
+|> Bookmark.changeset(attrs)
+|> cast_assoc(:link)
+|> Repo.insert()
